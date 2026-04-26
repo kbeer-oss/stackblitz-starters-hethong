@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ecf8f5;
+  --foreground: #0f172a;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Dark mode thật ===== */
+html.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+}
+
+html.dark body {
+  background: #020617;
+  color: #f8fafc;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #020617 !important;
+}
+
+html.dark .bg-white {
+  background-color: #0f172a !important;
+}
+
+html.dark .bg-white\/95 {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #0b1220 !important;
+}
+
+html.dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.dark .border-slate-200 {
+  border-color: #334155 !important;
+}
+
+html.dark .border-slate-100 {
+  border-color: #1e293b !important;
+}
+
+html.dark .ring-slate-200 {
+  --tw-ring-color: #334155 !important;
+}
+
+html.dark .hover\:bg-slate-200:hover {
+  background-color: #1e293b !important;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #0b1220 !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+html.dark table {
+  color: #e2e8f0;
+}
+
+html.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+}
+
+html.dark .bg-rose-50 {
+  background-color: rgba(244, 63, 94, 0.12) !important;
+}
+
+html.dark .bg-sky-50 {
+  background-color: rgba(14, 165, 233, 0.12) !important;
+}
+
+html.dark .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+}
+
+/* ===== Popup YubiKey animation ===== */
+@keyframes yubiPulse {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes yubiFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.yubi-fingerprint-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.yubi-pulse-ring {
+  position: absolute;
+  inset: 10px;
+  border-radius: 9999px;
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  animation: yubiPulse 1.6s ease-out infinite;
+}
+
+.yubi-pulse-ring.delay-1 {
+  animation-delay: 0.4s;
+}
+
+.yubi-fingerprint {
+  position: relative;
+  z-index: 2;
+  animation: yubiFloat 1.6s ease-in-out infinite;
+}
